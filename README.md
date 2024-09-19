@@ -20,6 +20,11 @@ Project Proposal can be used during the follow-up analysis and design meetings t
 
 *The vision statement should be specific enough that you can look at a proposed solution and say either "yes, this meets the vision and goals", or "no, it does not".*
 
+- Implement a CI bot to help us automate things and run commands via Github comments
+  - Host Prow, estimate expenses
+  - Implement tasks ranging from executing chat-ops commands from GitHub comments, to generating automated test reports, to evaluating code quality, etc.
+- Reimplement/improve the CI dashboard (visualize CI runs and assess the health of our testing infra)
+
 
 
 ## 2. Users/Personas Of The Project:
