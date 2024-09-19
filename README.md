@@ -79,14 +79,28 @@ Prow will require deployment to a Kubernetes Cluster, which will need to be host
 
 Minimum Acceptance Criteria:
 
-* Working GitHub Bot with basic commands
-* Improvements to CI dashboard
+CI Dashboard:
+- Implement tree view
+- Implement way to filter specific tests
+- Implement way to only take into account required tests
+- Implement collapse/expand all
+- Implement new views:
+  - PR results indexed by test name
+  - Test results indexed by nightly run
+  - Test results indexed by PR run
+  
+CI automation:
+- Automatically add the ok-to-test label to PRs from maintainers
+- Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
+- Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
 
 Stretch Goals:
 
-* ?
+CI Dashboard:
+- Implement graphs 
 
-* [ ] What would you consider to be the stretch goals?
+CI Automation:
+- Implement commands to set such labels via Github comments
 
 ## 6.  Release Planning:
 
