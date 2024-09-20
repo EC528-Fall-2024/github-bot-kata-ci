@@ -15,7 +15,7 @@
 2. Due by Wednesday, October 9th/October 16th
 3. Due by Wednesday, October 23rd/October 30th
 4. Due by Wednesday, November 6th/November 13th
-6. Due by Wednesday, November 20th/Monday, November 25th
+5. Due by Wednesday, November 20th/Monday, November 25th
 
 ## Sprint Demo Slides
 
@@ -24,8 +24,6 @@
 3. Due by Wednesday, October 23rd/October 30th
 4. Due by Wednesday, November 6th/November 13th
 5. Due by Wednesday, November 20th/Monday, November 25th
-
-## Project Description Template
 
 ## 1.   Vision and Goals Of The Project:
 
@@ -43,30 +41,7 @@ To that end, the goal of this project will be to:
 2. Develop a plan for—and a cost estimate of—implementing a CI GitHub Bot for Kata Containers that would help Kata Container developers automate a variety of tasks and run commands via GitHub comments
 3. And, if time permits, implement the GitHub Bot along with a variety of commands that facilitate CI development and transparency
 
-Note: Since the original project proposal, the Kata CI Dashboard was released recently and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important long-term goal.
-
-More specifically, we plan to...
-- Enhance the test management dashboard 
-  - Implement tree view
-  - Implement filtering capabilities to allow users to target specific test criteria (e.g., required vs. optional tests)
-  - Implement a feature to collapse and expand data regarding each test
-  - Indicate how many required/non-required tests were passed
-  - Implement different ways to index tests:
-    - Test name
-    - Nightly run
-    - PR run
-- Implement a CI bot to help us automate things and run commands via Github comments
-  - Automatically label PRs with okay-to-test
-    - Remove the 'okay-to-test' label after every push for security
-      - Specifically for non-maintainers
-    - Add okay-to-test to PRs from maintainers
-  Implement methods to trigger specific subgroups of tests 
-
-If time permits:
-  - Implement graphs to the dashboard
-  - Proposal on Host Prow including expense estimates and implementation requirements
-  - Implement commands to add labels via GitHub comments
-
+**Note**: Since the original project proposal, the Kata CI Dashboard was released recently and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important long-term goal.
 
 ## 2. Users/Personas Of The Project:
 
@@ -74,20 +49,11 @@ If time permits:
 
 ***Again, the description should be specific enough that you can determine whether user A, performing action B, is a member of the set of users the project is designed for.***
 
-The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  More specifically, there are maintainers and non-maintainers. Non-maintainers have fewer permissions and any time they update or push code their work needs to be checked before it is run through the testing pipeline. Compared to maintainers who could be seen more as admin of the system. They ensure code quality as well as review merge requests and pull requests. Nonetheless, both user groups require a user interface to easily view the results of their tests.
+The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  More specifically, there are non-maintainers/regular developers and then maintainers/reviewers. Non-maintainers have fewer permissions and any time they update or push code their work needs to be checked before it is run through the testing pipeline.  This is in contrast to maintainers who could be seen more as admins of the system. They ensure code quality as well as review merge requests and pull requests.
 
-Here we briefly describe a couple of hypothetical users and describe the utility of this project to each of their workflows.
+Both of these user groups require a UI and tools to easily view and assess the results of their CI tests, though their use cases may differ somewhat.  Maintainers may find it especially useful to have Dashboard features that monitor the health and status of all tests at merge time.  Other (non-maintainer) developers, who are not direclty responsible for approving pull requests or performing merges, may find more utility in commands that can be run prospectively to assess code quality, etc.  Maintainers will be more interested in running all available tests (at least the required tests) to ensure code compatitilbity and stability, whereas non-maintainer developers may prefer to zoom in on specific tests that relate to the particular features they are implementing.
 
-
-#### Doug the Dashboard User
-
-Doug is a developer for Kata Containers.  Doug's primary development CI/CD workflow is centered on the Kata Containers CI Dashboard.  
-
-
-#### Ben the Bot User
-
-Ben is also a Kata Containers developer, but their CI/CD workflow is instead focused on using a GitHub Bot and running commands to monitor the progress and health of development.
-
+Regardless, all tools—both GitHub commands and Dashboard features—will be available to and useful for any Kata Containers developer.
 
 ## 3.   Scope and Features Of The Project:
 
@@ -95,72 +61,84 @@ Ben is also a Kata Containers developer, but their CI/CD workflow is instead foc
 
 ***It should be specific enough that you can determine that e.g. feature A is in-scope, while feature B is out-of-scope.***
 
-As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.
+As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.  Critical to this project will be the team's ability to communicate and coordinate with the broader Kata Contaiers developer community in order to identify and properly define the features that will be most useful to the community.  This process of brainstorming and detailed specification/operationalization can be helpful for the community's future development, even for features we are not able to implement ourselves.
 
-Our planned features include:
+From our preliminary discussions, our currently planned features include:
 
 ***Dashboard:***
-- Implement tree view
+
+- Implement a tree view
 - Implement a way to filter specific tests
 - Implement a way to only take into account required tests
-- Indicate how many tests were passed
-- Implement collapse/expand all
-- Implement new views:
-- Currently: Nightly results indexed by test name
+- Indicate how many required/non-required tests were passed
+- Implement a feature to collapse and expand data regarding each test
+- Implement new views/indexing (currently nightly results indexed by test name):
   - New: PR results indexed by test name
   - New: Test results indexed by nightly run
   - New: Test results indexed by PR run
+- Implement graphs (stretch goal)
 
-***CI Automation:***
+***CI Bot Automation/Commands:***
+
 - Automatically add the ok-to-test label to PRs from maintainers
 - Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
 - Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
+- Create proposal for how to implement a GitHub bot (likely with Prow; will require hosting)
+- Implement commands to set such labels via GitHub comments (stretch goal)
+
+**Note**: This list of features will undoubtedly grow as we continue to interact with the entire community.  We will update these lists with additional features/goals as they become clear.
 
 ## 4. Solution Concept
 
 ***This section provides a high-level outline of the solution.***
 
-***Global Architectural Structure Of the Project:***
+***Global Architectural Structure Of the Project: T******his section provides a high-level architecture or a conceptual diagram showing the scope of the solution. If wireframes or visuals have already been done, this section could also be used to show how the intended solution will look. This section also provides a walkthrough explanation of the architectural structure.***
 
-***This section provides a high-level architecture or a conceptual diagram showing the scope of the solution. If wireframes or visuals have already been done, this section could also be used to show how the intended solution will look. This section also provides a walkthrough explanation of the architectural structure.***
+***Design Implications and Discussion: This section discusses the implications and reasons of the design decisions made during the global architecture design.***
 
-***Design Implications and Discussion:***
+In terms of the Dashboard, we plan to leverage the existing [Kata Contianers CI Dashboard](https://portersrc.github.io/) to add the desired changes/functionality. In terms of implementation, we will create a testing PR labeling system. This would allow users to:
 
-***This section discusses the implications and reasons of the design decisions made during the global architecture design.***
+* Group tests into specific categories
+* Display required tests while hiding less important tests
+* Set which tests to be run for which PRs
 
-In terms of the Dashboard, we believe we could leverage the current dashboard and implement the desired changes directly. In terms of implementation, we plan to create a testing label system. This would allow users to group tests into specific categories. Additionally, the required tests would be displayed while less important tests are not. We could leverage these same labels for other aspects of the dashboard, such as filtering. All other aspects of the dashboard will be implemented as they see fit. In general, we will reference the Ci pipeline that was just run for a given job and then add the corresponding results to the dashboard. When doing this we will give the entries different properties and labels that allow us to develop different ways of viewing the information. The labels including the ones mentioned above would have to be implemented in the CI pipeline automation.
+In general, we will reference the CI pipeline that was just run for a given job and then add the corresponding results to the Dashboard. When doing this we will give the entries different properties and labels that allow us to develop different ways of viewing the information. The labels, including the ones mentioned above, would have to be implemented in the CI pipeline automation.
+
+In terms of the CI Automation and GitHub Bot, we plan to use [Prow](https://docs.prow.k8s.io/docs/getting-started-deploy/)—a Kubernetes based CI/CD system.  However, this is deployed in a Kubernetes cluster and so will require hosting with a cloud provider.  Since this comes with a non-negligible cost, one of our first goals will be to assess this cost and flesh out the implementation details.  Our current plan is to use Azure Kubernetes Service, as Microsoft is already sponsoring the Kata project.  
+
+Prow allows users to trigger jobs from various types of events and report their status to many  different services. Critically, Prow also provides GitHub automation in the form of policy enforcement, chat-ops via /foo style commands, and automatic PR merging.  These features make Prow a perfect fit for the current project.
+
+See the images below for an overview of the architectures for both Kata Contains and Prow.
 
 ![Architecture diagram](https://katacontainers.io/static/589e3d905652847b22c395fe6bbbace7/8fef6/katacontainers_architecture_diagram.jpg)
+
+![1726854857223](image/README/1726854857223.png)
 
 ## 5. Acceptance criteria
 
 ***This section discusses the minimum acceptance criteria at the end of the project and stretch goals.***
 
+These features are elaborated on in greater detail in **Section 3** above.  This section provides a brief summary of the features.
+
 #### Minimum Viable Product:
 
-* Basic CI Dashboard improvements, minimally including:
-  * A tree view
-  * A way to filter to specific tests
-  * A way to only consider the *required* tests
-  * Ability to collapse and expand all
-  * New views for:
-    * PR results indexed by test name
-    * Test results indexed by nightly run
-    * Test results indexed by PR run
-  * Graph overviews
-  * A variety of Dashboard features identified by the team and broader community throughout the course of the project.
+* CI Dashboard:
+  * New tree view
+  * New filtering options
+  * New indexing/sorting options
+* CI Automation
+  * Ability to automatically add/remove test labels to PRs
+  * Have labels that trigger a subset of tests to be run
 * A detailed plan for how our team—or the community—can implement a GitHub Bot and associated CI/CD commands
 
 #### Stretch Goals:
 
-* A GitHub Bot that allows for CI automation
-* Associated commands to:
-  * Automatically add the ok-to-test label to PRs from maintainers
-  * Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
-  * Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
-  * A variety of additional commands identified by the team and broader community throughout the course of the project.
+* Dashboard
+  * Implement graphs
+* CI Automation and GitHub Bot
+  * Implement commands to set labels via GitHub comments
 
-**Note**: We will update these lists with additional features/goals as they become clear through discussions with the community.
+**Note**: As we communicate further with the community, we will undoubtedly add to these feature lists— both for the MVP and the Stretch goals.
 
 ## 6.  Release Planning:
 
@@ -174,7 +152,7 @@ We plan on 5 major releases, corresponding to the 5 planned sprints throughout t
 4. Implement labels for the PRs and, if time permits, implementation of GitHub Bot commands
 5. Finalize and test features
 
-Note: Once our sprint schedule is known, we will update this section with specific sprint/release dates.
+**Note**: Once our sprint schedule is known, we will update this section with specific sprint/release dates.
 
 ## Resources
 
@@ -194,7 +172,11 @@ Note: Once our sprint schedule is known, we will update this section with specif
 
 ## About
 
+This is a project for BU EC528: Cloud Computing Fundamentals that is intended to implement a GitHub bot for the Kata Containers CI to automate various tasks, as well as implement improvements to the existing [Kata Containers CI Dashboard](https://portersrc.github.io/).
+
 ## Installation
+
+Kata Containers: [https://github.com/kata-containers/kata-containers/pull/10335](https://github.com/kata-containers/kata-containers/pull/10335)
 
 #### Dependencies
 
