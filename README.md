@@ -55,13 +55,38 @@ To that end, the goal of this project will be to:
 
 Note: The Kata CI Dashboard was released recently—since the original project proposal—and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important longer term goal.
 
+More specifically, we plan to...
+- Enhance test management dashboard 
+  - Implement tree view
+  - Implement filtering capabilities to allow users to target specific test criteria (e.g., required vs. optional tests)
+  - Implement feature to collapse and expand data regarding each test
+  - Implement different way to index tests:
+    - Test name
+    - Nightly run
+    - PR run
+- Implement a CI bot to help us automate things and run commands via Github comments
+  - Automatically label PRs with okay-to-test
+    - Remove okay-to-test label after every push for security
+      - Speficially for non-maintainers
+    - Add okay-to-test to PRs from maintainers
+  Implement methods to trigger specific subgroups of tests 
+
+If time permits:
+  - Implement graphs to the dashboard
+  - Proposal on Host Prow including expense estimates and implementation requirements
+  - Implement commands to add label via GitHub comments
+
+
 ## 2. Users/Personas Of The Project:
 
 ***This section describes the principal user roles of the project together with the key characteristics of these roles. This information will inform the design and the user scenarios. A complete set of roles helps in ensuring that high-level requirements can be identified in the product backlog.***
 
 ***Again, the description should be specific enough that you can determine whether user A, performing action B, is a member of the set of users the project is designed for.***
 
-The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  Here we briefly describe a couple of hypothetical users and describe the utility of this project to each of their workflows.
+The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  More specially there is maintainers and non-maintainers. Non-maintainers have less permissions and any time they update or push code their work needs to be check over before it is run through the testing pipeline. Compared to maintainers who could be seen more as admin of the system. They ensure code quality, review merge requests, as well as pull requests. None the less both user groups require a user interface to easily view the results of their tests.
+
+Here we briefly describe a couple of hypothetical users and describe the utility of this project to each of their workflows.
+
 
 #### Doug the Dashboard User
 
@@ -79,21 +104,25 @@ Ben is also a Kata Containers developer, but their CI/CD workflow is instead foc
 
 ***It should be specific enough that you can determine that e.g. feature A is in-scope, while feature B is out-of-scope.***
 
-As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continous integration) along with a stable and automated test environment are paramount to the success of the project.
+As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.
 
 Our planned features include:
 
-* Executing of chat-ops commands from GitHub coments to...
-  * Generate automated test reports
-  * Evaluate code quality
-  * ?
-* Improve the existing CI dashboard to...
-  * Add visualizations of CI runs
-  * Asses the health of the testing infrastructure
+***Dashboard:***
+- Implement tree view
+- Implement way to filter specific tests
+- Implement way to only take into account required tests
+- Implement collapse/expand all
+- Implement new views:
+- Currently: Nightly results indexed by test name
+  - New: PR results indexed by test name
+  - New: Test results indexed by nightly run
+  - New: Test results indexed by PR run
 
-- We plan to do this using Prow--the Kubernetes CICD system.
-  - Host Prow, estimate expenses
-- Implement tasks ranging from executing chat-ops commands from GitHub comments, to generating automated test reports, to evaluating code quality, etc.
+***CI Automation:***
+- Automatically add the ok-to-test label to PRs from maintainers
+- Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
+- Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
 
 ## 4. Solution Concept
 
@@ -107,7 +136,7 @@ Our planned features include:
 
 ***This section discusses the implications and reasons of the design decisions made during the global architecture design.***
 
-Prow will require deployment to a Kubernetes Cluster, which will need to be hosted, for which we plan to use Microsoft's Azure Kubernetes Service.
+In terms of the Dashboard, we believe we could leverage the current dashboard and add implement the desired changes directly. In terms of implementing the specific aspects, we plan to create a testing label system. This would allow users to group tests into specific categories. This would allow the required tests to be seen and other less important tests to not be displayed. We could leverage these same labels for other aspects of the dashboard, such as filtering. All other aspects of the dashboard will be implemented as they see fit. In general we will reference the Ci pipeline that was just run for a given job and then add the corresponding results to teh dashboard. When doing this we will give teh entries different properties and labels that allow us to develop different ways of viewing the information. The labels including the ones mentioned above would have to be implemented in the CI pipeline automation.
 
 ![Architecture diagram](https://katacontainers.io/static/589e3d905652847b22c395fe6bbbace7/8fef6/katacontainers_architecture_diagram.jpg)
 
