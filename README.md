@@ -24,10 +24,26 @@ The goal of this project will be to implment a Continuous Integration GitHub Bot
 
 We plan to:
 
+- Enhance test management dashboard 
+  - Implement tree view
+  - Implement filtering capabilities to allow users to target specific test criteria (e.g., required vs. optional tests)
+  - Implement feature to collapse and expand data regarding each test
+  - Implement different way to index tests:
+    - Test name
+    - Nightly run
+    - PR run
 - Implement a CI bot to help us automate things and run commands via Github comments
-  - Host Prow, estimate expenses
-  - Implement tasks ranging from executing chat-ops commands from GitHub comments, to generating automated test reports, to evaluating code quality, etc.
-- Reimplement/improve the CI dashboard (visualize CI runs and assess the health of our testing infra)
+  - Automatically label PRs with okay-to-test
+    - Remove okay-to-test label after every push for security
+      - Speficially for non-maintainers
+    - Add okay-to-test to PRs from maintainers
+  Implement methods to trigger specific subgroups of tests 
+
+
+If time permits:
+  - Implement graphs to the dashboard
+  - Proposal on Host Prow including expense estimates and implementation requirements
+  - Implement commands to add label via GitHub comments
 
 ## 2. Users/Personas Of The Project:
 
