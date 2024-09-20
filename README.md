@@ -148,9 +148,9 @@ Prow will require deployment to a Kubernetes Cluster, which will need to be host
 We plan on 5 major releases, corresponding to the 5 planned sprints throughout the semester:
 
 1. Project setup, implementation of and experimentation with Kata Containers, skeletons of planned Dashboard features, and basic research on a potential Bot implementation
-2. Substantive improvements to existing CI Dashboard and research into a GitHub Bot implementation
-3. Further
-4. If time permits, implementation of GitHub Bot for
+2. Substantive improvements to existing CI Dashboard (visualizations and health checks) and research into a GitHub Bot implementation
+3. Creation fo placehoolder GitHub Bot and further improvements to Dashboard
+4. Implement labels for the PRs and, if time permits, implementation of GitHub Bot commands
 5. Finalize and test features
 
 Note: Once our sprint schedule is known, we will update this section with specific sprint/release dates.
