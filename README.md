@@ -61,19 +61,25 @@ The typical user will be a developer of Kata Containers utilizing GitHub-based C
 
 ***It should be specific enough that you can determine that e.g. feature A is in-scope, while feature B is out-of-scope.***
 
-As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continous integration) along with a stable and automated test environment are paramount to the success of the project.
+As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.
 
 Our planned features include:
 
-* Executing of chat-ops commands from GitHub coments to...
-  * Generate automated test reports
-  * Evaluate code quality
-  * ?
-* Improve the existing CI dashboard to...
-  * Add visualizations of CI runs
-  * Asses the health of the testing infrastructure
+***Dashboard:***
+- Implement tree view
+- Implement way to filter specific tests
+- Implement way to only take into account required tests
+- Implement collapse/expand all
+- Implement new views:
+- Currently: Nightly results indexed by test name
+  - New: PR results indexed by test name
+  - New: Test results indexed by nightly run
+  - New: Test results indexed by PR run
 
-* [ ] What are some other examples of common user stories or functions/commands?
+***CI Automation:***
+- Automatically add the ok-to-test label to PRs from maintainers
+- Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
+- Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
 
 ## 4. Solution Concept
 
