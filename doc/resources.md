@@ -9,7 +9,7 @@
 
 #### Team Info
 
-* 528 Students
+* **528 Students**: afinn12@bu.edu; jamesaknee@gmail.com; ckrenz@bu.edu; alicja@bu.edu; xtyao@bu.edu
   * Anna Finn
     * GitHub: afinn12
     * afinn12@bu.edu
@@ -25,7 +25,7 @@
   * Xiteng Yao
     * GitHub: xtyao66
     * xtyao@bu.edu
-* Mentors/Microsoft
+* **Mentors/Microsoft**: aurelien.bombo@microsoft.com; archana1@microsoft.com; saulparedes@microsoft.com; Manuel.Huber@microsoft.com
   * Aurelien Bombo
     * GitHub: sprt
     * aurelien.bombo@microsoft.com

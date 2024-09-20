@@ -1,13 +1,15 @@
 ## Collaborators
 
-| Names          | Roles   | Emails                       | GitHub Handles |
-| :------------- | ------- | ---------------------------- | -------------- |
-| Aurelien Bombo | Mentor  | aurelien.bombo@microsoft.com | sprt           |
-| Anna Finn      | Student | afinn12@bu.edu               | afinn12        |
-| James Knee     | Student | jamesaknee@gmail.com         | JamesKnee      |
-| Chris Krenz    | Student | ckrenz@bu.edu                | chris-krenz    |
-| Alicja Mahr    | Student | alicja@bu.edu                | a1icja         |
-| Xiteng Yao     | Student | xtyao@bu.edu                 | xtyao66        |
+| Names             | Roles   | Emails                       | GitHub Handles |
+| :---------------- | ------- | ---------------------------- | -------------- |
+| Aurelien Bombo    | Mentor  | aurelien.bombo@microsoft.com | sprt           |
+| Archana Choudhary | Mentor  | archana1@microsoft.co        | arc9693        |
+| Saul Paredes      | Mentor  | saulparedes@microsoft.com    | Redent0r       |
+| Anna Finn         | Student | afinn12@bu.edu               | afinn12        |
+| James Knee        | Student | jamesaknee@gmail.com         | JamesKnee      |
+| Chris Krenz       | Student | ckrenz@bu.edu                | chris-krenz    |
+| Alicja Mahr       | Student | alicja@bu.edu                | a1icja         |
+| Xiteng Yao        | Student | xtyao@bu.edu                 | xtyao66        |
 
 ## Sprint Demo Videos
 
@@ -26,6 +28,7 @@
 5. Due by Wednesday, November 20th/Monday, November 25th
 
 ## Final Presentation
+
 1. Due by Monday, December 9th/Wednesday, December 11th
 
 ## 1.   Vision and Goals Of The Project:
@@ -107,7 +110,7 @@ In terms of the Dashboard, we plan to leverage the existing [Kata Contianers CI 
 
 In general, we will reference the CI pipeline that was just run for a given job and then add the corresponding results to the Dashboard. When doing this we will give the entries different properties and labels that allow us to develop different ways of viewing the information. The labels, including the ones mentioned above, would have to be implemented in the CI pipeline automation.
 
-In terms of the CI Automation and GitHub Bot, we plan to use [Prow](https://docs.prow.k8s.io/docs/getting-started-deploy/)—a Kubernetes based CI/CD system.  However, this is deployed in a Kubernetes cluster and so will require hosting with a cloud provider.  Since this comes with a non-negligible cost, one of our first goals will be to assess this cost and flesh out the implementation details.  Our current plan is to use Azure Kubernetes Service, as Microsoft is already sponsoring the Kata project.  
+In terms of the CI Automation and GitHub Bot, we plan to use [Prow](https://docs.prow.k8s.io/docs/getting-started-deploy/)—a Kubernetes based CI/CD system.  However, this is deployed in a Kubernetes cluster and so will require hosting with a cloud provider.  Since this comes with a non-negligible cost, one of our first goals will be to assess this cost and flesh out the implementation details.  Our current plan is to use Azure Kubernetes Service, as Microsoft is already sponsoring the Kata project.
 
 Prow allows users to trigger jobs from various types of events and report their status to many  different services. Critically, Prow also provides GitHub automation in the form of policy enforcement, chat-ops via /foo style commands, and automatic PR merging.  These features make Prow a perfect fit for the current project.
 
