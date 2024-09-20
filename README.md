@@ -51,7 +51,7 @@ If time permits:
 
 ***Again, the description should be specific enough that you can determine whether user A, performing action B, is a member of the set of users the project is designed for.***
 
-The typical user will be a developer of Kata Containers utilizing GitHub-based CI/CD.
+The typical user will be a developer of Kata Containers utilizing GitHub-based CI/CD. More specially there is maintainers and non-maintainers. Non-maintainers have less permissions and any time they update or push code their work needs to be check over before it is run through the testing pipeline. Compared to maintainers who could be seen more as admin of the system. They ensure code quality, review merge requests, as well as pull requests. None the less both user groups require a user interface to easily view the results of their tests.
 
 ---
 
