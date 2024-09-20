@@ -93,7 +93,7 @@ Our planned features include:
 
 ***This section discusses the implications and reasons of the design decisions made during the global architecture design.***
 
-Prow will require deployment to a Kubernetes Cluster, which will need to be hosted, for which we plan to use Microsoft's Azure Kubernetes Service.
+In terms of the Dashboard, we believe we could leverage the current dashboard and add implement the desired changes directly. In terms of implementing the specific aspects, we plan to create a testing label system. This would allow users to group tests into specific categories. This would allow the required tests to be seen and other less important tests to not be displayed. We could leverage these same labels for other aspects of the dashboard, such as filtering. All other aspects of the dashboard will be implemented as they see fit. In general we will reference the Ci pipeline that was just run for a given job and then add the corresponding results to teh dashboard. When doing this we will give teh entries different properties and labels that allow us to develop different ways of viewing the information. The labels including the ones mentioned above would have to be implemented in the CI pipeline automation.
 
 ## 5. Acceptance criteria
 
