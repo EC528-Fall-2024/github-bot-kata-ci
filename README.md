@@ -112,7 +112,7 @@ See the images below for an overview of the architectures for both Kata Contains
 
 ![Architecture diagram](https://katacontainers.io/static/589e3d905652847b22c395fe6bbbace7/8fef6/katacontainers_architecture_diagram.jpg)
 
-![1726854857223](image/README/1726854857223.png)
+![1726854857223](image/README/ProwArchitecture.png)
 
 ## 5. Acceptance criteria
 
