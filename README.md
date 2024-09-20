@@ -3,7 +3,7 @@
 | Names             | Roles   | Emails                       | GitHub Handles |
 | :---------------- | ------- | ---------------------------- | -------------- |
 | Aurelien Bombo    | Mentor  | aurelien.bombo@microsoft.com | sprt           |
-| Archana Choudhary | Mentor  | archana1@microsoft.co        | arc9693        |
+| Archana Choudhary | Mentor  | archana1@microsoft.com       | arc9693        |
 | Saul Paredes      | Mentor  | saulparedes@microsoft.com    | Redent0r       |
 | Anna Finn         | Student | afinn12@bu.edu               | afinn12        |
 | James Knee        | Student | jamesaknee@gmail.com         | JamesKnee      |
