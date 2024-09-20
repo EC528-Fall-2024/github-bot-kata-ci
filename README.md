@@ -11,31 +11,21 @@
 
 ## Sprint Demo Videos
 
-1. Due by Wednesday, September 25th?
-2. ?
-3. ?
-4. ?
-5. ?
+1. Due by Wednesday, September 25th/October 2nd
+2. Due by Wednesday, October 9th/October 16th
+3. Due by Wednesday, October 23rd/October 30th
+4. Due by Wednesday, November 6th/November 13th
+6. Due by Wednesday, November 20th/Monday, November 25th
 
 ## Sprint Demo Slides
 
-1. Due by Wednesday, September 25th?
-2. ?
-3. ?
-4. ?
-5. ?
+1. Due by Wednesday, September 25th/October 2nd
+2. Due by Wednesday, October 9th/October 16th
+3. Due by Wednesday, October 23rd/October 30th
+4. Due by Wednesday, November 6th/November 13th
+5. Due by Wednesday, November 20th/Monday, November 25th
 
 ## Project Description Template
-
-***The purpose of this Project Description is to present the ideas proposed and decisions made during the preliminary envisioning and inception phase of the project. The goal is to analyze an initial concept proposal at a strategic level of detail and attain/compose an agreement between the project team members and the project customer (mentors and instructors) on the desired solution and overall project direction.***
-
-***This template proposal contains a number of sections, which you can edit/modify/add/delete/organize as you like.  Some key sections we’d like to have in the proposal are:***
-
-- ***Vision: An executive summary of the vision, goals, users, and general scope of the intended project.***
-- ***Solution Concept: the approach the project team will take to meet the business needs. This section also provides an overview of the architectural and technical designs made for implementing the project.***
-- ***Scope: the boundary of the solution defined by itemizing the intended features and functions in detail, determining what is out of scope, a release strategy and possibly the criteria by which the solution will be accepted by users and operations.***
-
-***Project Proposal can be used during the follow-up analysis and design meetings to give context to efforts of more detailed technical specifications and plans. It provides a clear direction for the project team; outlines project goals, priorities, and constraints; and sets expectations.***
 
 ## 1.   Vision and Goals Of The Project:
 
@@ -43,38 +33,39 @@
 
 ***The vision statement should be specific enough that you can look at a proposed solution and say either "yes, this meets the vision and goals", or "no, it does not".***
 
-Kata Containers is an open source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
+Kata Containers is an open-source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
 
-As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continous integration) along with a stable and automated test environment are paramount to the success of the project. As such, the community is continuously investigating ways to strengthen our testing pipelines and make our processes more efficient.
+As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the project's success. As such, the community is continuously investigating ways to strengthen our testing pipelines and make our processes more efficient.
 
 To that end, the goal of this project will be to:
 
-1. Implement improvements to the recently developed [Kata CI Dashboard](https://portersrc.github.io/) to visualize CI runs, improve clarity of the dashboard feedback, and better assess the health of the testing infrastructure
+1. Implement improvements to the recently developed [Kata CI Dashboard](https://portersrc.github.io/) to visualize CI runs, improve the clarity of the dashboard feedback, and better assess the health of the testing infrastructure
 2. Develop a plan for—and a cost estimate of—implementing a CI GitHub Bot for Kata Containers that would help Kata Container developers automate a variety of tasks and run commands via GitHub comments
 3. And, if time permits, implement the GitHub Bot along with a variety of commands that facilitate CI development and transparency
 
-Note: The Kata CI Dashboard was released recently—since the original project proposal—and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important longer term goal.
+Note: Since the original project proposal, the Kata CI Dashboard was released recently and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important long-term goal.
 
 More specifically, we plan to...
-- Enhance test management dashboard 
+- Enhance the test management dashboard 
   - Implement tree view
   - Implement filtering capabilities to allow users to target specific test criteria (e.g., required vs. optional tests)
-  - Implement feature to collapse and expand data regarding each test
-  - Implement different way to index tests:
+  - Implement a feature to collapse and expand data regarding each test
+  - Indicate how many required/non-required tests were passed
+  - Implement different ways to index tests:
     - Test name
     - Nightly run
     - PR run
 - Implement a CI bot to help us automate things and run commands via Github comments
   - Automatically label PRs with okay-to-test
-    - Remove okay-to-test label after every push for security
-      - Speficially for non-maintainers
+    - Remove the 'okay-to-test' label after every push for security
+      - Specifically for non-maintainers
     - Add okay-to-test to PRs from maintainers
   Implement methods to trigger specific subgroups of tests 
 
 If time permits:
   - Implement graphs to the dashboard
   - Proposal on Host Prow including expense estimates and implementation requirements
-  - Implement commands to add label via GitHub comments
+  - Implement commands to add labels via GitHub comments
 
 
 ## 2. Users/Personas Of The Project:
@@ -83,7 +74,7 @@ If time permits:
 
 ***Again, the description should be specific enough that you can determine whether user A, performing action B, is a member of the set of users the project is designed for.***
 
-The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  More specially there is maintainers and non-maintainers. Non-maintainers have less permissions and any time they update or push code their work needs to be check over before it is run through the testing pipeline. Compared to maintainers who could be seen more as admin of the system. They ensure code quality, review merge requests, as well as pull requests. None the less both user groups require a user interface to easily view the results of their tests.
+The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  More specifically, there are maintainers and non-maintainers. Non-maintainers have fewer permissions and any time they update or push code their work needs to be checked before it is run through the testing pipeline. Compared to maintainers who could be seen more as admin of the system. They ensure code quality as well as review merge requests and pull requests. Nonetheless, both user groups require a user interface to easily view the results of their tests.
 
 Here we briefly describe a couple of hypothetical users and describe the utility of this project to each of their workflows.
 
@@ -104,14 +95,15 @@ Ben is also a Kata Containers developer, but their CI/CD workflow is instead foc
 
 ***It should be specific enough that you can determine that e.g. feature A is in-scope, while feature B is out-of-scope.***
 
-As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.
+As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.
 
 Our planned features include:
 
 ***Dashboard:***
 - Implement tree view
-- Implement way to filter specific tests
-- Implement way to only take into account required tests
+- Implement a way to filter specific tests
+- Implement a way to only take into account required tests
+- Indicate how many tests were passed
 - Implement collapse/expand all
 - Implement new views:
 - Currently: Nightly results indexed by test name
@@ -136,7 +128,7 @@ Our planned features include:
 
 ***This section discusses the implications and reasons of the design decisions made during the global architecture design.***
 
-In terms of the Dashboard, we believe we could leverage the current dashboard and add implement the desired changes directly. In terms of implementing the specific aspects, we plan to create a testing label system. This would allow users to group tests into specific categories. This would allow the required tests to be seen and other less important tests to not be displayed. We could leverage these same labels for other aspects of the dashboard, such as filtering. All other aspects of the dashboard will be implemented as they see fit. In general we will reference the Ci pipeline that was just run for a given job and then add the corresponding results to teh dashboard. When doing this we will give teh entries different properties and labels that allow us to develop different ways of viewing the information. The labels including the ones mentioned above would have to be implemented in the CI pipeline automation.
+In terms of the Dashboard, we believe we could leverage the current dashboard and implement the desired changes directly. In terms of implementation, we plan to create a testing label system. This would allow users to group tests into specific categories. Additionally, the required tests would be displayed while less important tests are not. We could leverage these same labels for other aspects of the dashboard, such as filtering. All other aspects of the dashboard will be implemented as they see fit. In general, we will reference the Ci pipeline that was just run for a given job and then add the corresponding results to the dashboard. When doing this we will give the entries different properties and labels that allow us to develop different ways of viewing the information. The labels including the ones mentioned above would have to be implemented in the CI pipeline automation.
 
 ![Architecture diagram](https://katacontainers.io/static/589e3d905652847b22c395fe6bbbace7/8fef6/katacontainers_architecture_diagram.jpg)
 
@@ -178,7 +170,7 @@ We plan on 5 major releases, corresponding to the 5 planned sprints throughout t
 
 1. Project setup, implementation of and experimentation with Kata Containers, skeletons of planned Dashboard features, and basic research on a potential Bot implementation
 2. Substantive improvements to existing CI Dashboard (visualizations and health checks) and research into a GitHub Bot implementation
-3. Creation fo placehoolder GitHub Bot and further improvements to Dashboard
+3. Creation of placeholder GitHub Bot and further improvements to the Dashboard
 4. Implement labels for the PRs and, if time permits, implementation of GitHub Bot commands
 5. Finalize and test features
 
