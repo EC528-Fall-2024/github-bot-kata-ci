@@ -110,6 +110,6 @@ We plan on 5 major releases, corresponding to the 5 planned sprints throughout t
 
 1. Project setup, creation of placeholder GitHub Bot, and skeletons of planned features
 2. Improvements to existing CI Dashboard: visualizations and health checks
-3. Basic GitHub bot commands:
-4. ?
+3. Basic GitHub bot commands
+4. Implement labels for the PRs
 5. Finalize and test features
