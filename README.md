@@ -1,3 +1,30 @@
+## Collaborators
+
+| Names          | Roles   | Emails                       | GitHub Handles |
+| :------------- | ------- | ---------------------------- | -------------- |
+| Aurelien Bombo | Mentor  | aurelien.bombo@microsoft.com | sprt           |
+| Anna Finn      | Student | afinn12@bu.edu               | afinn12        |
+| James Knee     | Student | jamesaknee@gmail.com         | JamesKnee      |
+| Chris Krenz    | Student | ckrenz@bu.edu                | chris-krenz    |
+| Alicja Mahr    | Student | alicja@bu.edu                | a1icja         |
+| Xiteng Yao     | Student | xtyao@bu.edu                 | xtyao66        |
+
+## Sprint Demo Videos
+
+1. Due by Wednesday, September 25th?
+2. ?
+3. ?
+4. ?
+5. ?
+
+## Sprint Demo Slides
+
+1. Due by Wednesday, September 25th?
+2. ?
+3. ?
+4. ?
+5. ?
+
 ## Project Description Template
 
 ***The purpose of this Project Description is to present the ideas proposed and decisions made during the preliminary envisioning and inception phase of the project. The goal is to analyze an initial concept proposal at a strategic level of detail and attain/compose an agreement between the project team members and the project customer (mentors and instructors) on the desired solution and overall project direction.***
@@ -10,24 +37,23 @@
 
 ***Project Proposal can be used during the follow-up analysis and design meetings to give context to efforts of more detailed technical specifications and plans. It provides a clear direction for the project team; outlines project goals, priorities, and constraints; and sets expectations.***
 
----
-
 ## 1.   Vision and Goals Of The Project:
 
 ***The vision section describes the final desired state of the project once the project is complete. It also specifies the key goals of the project. This section provides a context for decision-making. A shared vision among all team members can help ensuring that the solution meets the intended goals. A solid vision clarifies perspective and facilitates decision-making.***
 
 ***The vision statement should be specific enough that you can look at a proposed solution and say either "yes, this meets the vision and goals", or "no, it does not".***
 
-Kata Containers is an open source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers, but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
+Kata Containers is an open source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
 
-The goal of this project will be to implment a Continuous Integration GitHub Bot for Kata Containers that will help users automate a variety of tasks and run commands via GitHub comments.  We plan to do this using Prow--the Kubernetes CICD system.
+As Kata Containers support many different systems, architectures, hypervisors and other underlying technologies, CI (continous integration) along with a stable and automated test environment are paramount to the success of the project. As such, the community is continuously investigating ways to strengthen our testing pipelines and make our processes more efficient.
 
-We plan to:
+To that end, the goal of this project will be to:
 
-- Implement a CI bot to help us automate things and run commands via Github comments
-  - Host Prow, estimate expenses
-  - Implement tasks ranging from executing chat-ops commands from GitHub comments, to generating automated test reports, to evaluating code quality, etc.
-- Reimplement/improve the CI dashboard (visualize CI runs and assess the health of our testing infra)
+1. Implement improvements to the recently developed [Kata CI Dashboard](https://portersrc.github.io/) to visualize CI runs, improve clarity of the dashboard feedback, and better assess the health of the testing infrastructure
+2. Develop a plan for—and a cost estimate of—implementing a CI GitHub Bot for Kata Containers that would help Kata Container developers automate a variety of tasks and run commands via GitHub comments
+3. And, if time permits, implement the GitHub Bot along with a variety of commands that facilitate CI development and transparency
+
+Note: The Kata CI Dashboard was released recently—since the original project proposal—and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important longer term goal.
 
 ## 2. Users/Personas Of The Project:
 
@@ -35,9 +61,17 @@ We plan to:
 
 ***Again, the description should be specific enough that you can determine whether user A, performing action B, is a member of the set of users the project is designed for.***
 
-The typical user will be a developer of Kata Containers utilizing GitHub-based CI/CD.
+The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  Here we briefly describe a couple of hypothetical users and describe the utility of this project to each of their workflows.
 
----
+#### Doug the Dashboard User
+
+Doug is a developer for Kata Containers.  Doug's primary development CI/CD workflow is centered on the Kata Containers CI Dashboard.  
+
+
+#### Ben the Bot User
+
+Ben is also a Kata Containers developer, but their CI/CD workflow is instead focused on using a GitHub Bot and running commands to monitor the progress and health of development.
+
 
 ## 3.   Scope and Features Of The Project:
 
@@ -57,7 +91,9 @@ Our planned features include:
   * Add visualizations of CI runs
   * Asses the health of the testing infrastructure
 
-* [ ] What are some other examples of common user stories or functions/commands?
+- We plan to do this using Prow--the Kubernetes CICD system.
+  - Host Prow, estimate expenses
+- Implement tasks ranging from executing chat-ops commands from GitHub comments, to generating automated test reports, to evaluating code quality, etc.
 
 ## 4. Solution Concept
 
@@ -73,34 +109,37 @@ Our planned features include:
 
 Prow will require deployment to a Kubernetes Cluster, which will need to be hosted, for which we plan to use Microsoft's Azure Kubernetes Service.
 
+![Architecture diagram](https://katacontainers.io/static/589e3d905652847b22c395fe6bbbace7/8fef6/katacontainers_architecture_diagram.jpg)
+
 ## 5. Acceptance criteria
 
 ***This section discusses the minimum acceptance criteria at the end of the project and stretch goals.***
 
-Minimum Acceptance Criteria:
+#### Minimum Viable Product:
 
-CI Dashboard:
-- Implement tree view
-- Implement way to filter specific tests
-- Implement way to only take into account required tests
-- Implement collapse/expand all
-- Implement new views:
-  - PR results indexed by test name
-  - Test results indexed by nightly run
-  - Test results indexed by PR run
-  
-CI automation:
-- Automatically add the ok-to-test label to PRs from maintainers
-- Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
-- Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
+* Basic CI Dashboard improvements, minimally including:
+  * A tree view
+  * A way to filter to specific tests
+  * A way to only consider the *required* tests
+  * Ability to collapse and expand all
+  * New views for:
+    * PR results indexed by test name
+    * Test results indexed by nightly run
+    * Test results indexed by PR run
+  * Graph overviews
+  * A variety of Dashboard features identified by the team and broader community throughout the course of the project.
+* A detailed plan for how our team—or the community—can implement a GitHub Bot and associated CI/CD commands
 
-Stretch Goals:
+#### Stretch Goals:
 
-CI Dashboard:
-- Implement graphs 
+* A GitHub Bot that allows for CI automation
+* Associated commands to:
+  * Automatically add the ok-to-test label to PRs from maintainers
+  * Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
+  * Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
+  * A variety of additional commands identified by the team and broader community throughout the course of the project.
 
-CI Automation:
-- Implement commands to set such labels via Github comments
+**Note**: We will update these lists with additional features/goals as they become clear through discussions with the community.
 
 ## 6.  Release Planning:
 
@@ -108,8 +147,40 @@ CI Automation:
 
 We plan on 5 major releases, corresponding to the 5 planned sprints throughout the semester:
 
-1. Project setup, creation of placeholder GitHub Bot, and skeletons of planned features
-2. Improvements to existing CI Dashboard: visualizations and health checks
-3. Basic GitHub bot commands:
-4. ?
+1. Project setup, implementation of and experimentation with Kata Containers, skeletons of planned Dashboard features, and basic research on a potential Bot implementation
+2. Substantive improvements to existing CI Dashboard and research into a GitHub Bot implementation
+3. Further
+4. If time permits, implementation of GitHub Bot for
 5. Finalize and test features
+
+Note: Once our sprint schedule is known, we will update this section with specific sprint/release dates.
+
+## Resources
+
+* Kubernetes and containers: [https://kubernetes.io/](https://kubernetes.io/)
+* Kata containers: [https://katacontainers.io/learn/](https://katacontainers.io/learn/)
+* Kata repo:  [https://github.com/kata-containers/kata-containers](https://github.com/kata-containers/kata-containers)
+* Installation guide: [https://github.com/kata-containers/kata-containers/tree/main/docs/install](https://github.com/kata-containers/kata-containers/tree/main/docs/install)
+* Community info (incl. weekly meeting and Slack channels): [https://github.com/kata-containers/community](https://github.com/kata-containers/community)
+* Architecture: [https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture](https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture)
+* Architecture 3.0: [https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture_3.0](https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture_3.0)
+* Contributing guide: [https://github.com/kata-containers/community/blob/main/CONTRIBUTING.md](https://github.com/kata-containers/community/blob/main/CONTRIBUTING.md)
+* CI guide: [https://github.com/kata-containers/kata-containers/blob/main/ci/README.md](https://github.com/kata-containers/kata-containers/blob/main/ci/README.md)
+* Prow: [https://docs.prow.k8s.io/docs/getting-started-deploy/](https://docs.prow.k8s.io/docs/getting-started-deploy/)
+* Porters: [https://portersrc.github.io/](https://portersrc.github.io/)
+
+---
+
+## About
+
+## Installation
+
+#### Dependencies
+
+## Usage
+
+#### Examples
+
+## License
+
+[CC0 1.0 Universal](https://github.com/EC528-Fall-2024/github-bot-kata-ci/blob/main/LICENSE)
