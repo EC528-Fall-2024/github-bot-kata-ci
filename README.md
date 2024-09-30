@@ -43,7 +43,7 @@ As Kata Containers support many different systems, architectures, hypervisors, a
 
 To that end, the goal of this project will be to:
 
-1. Implement improvements to the recently developed [Kata CI Dashboard](https://portersrc.github.io/) to visualize CI runs, improve the clarity of the dashboard feedback, and better assess the health of the testing infrastructure
+1. Implement improvements to the recently developed [Kata CI Dashboard](https://kata-containers.github.io/) to visualize CI runs, improve the clarity of the dashboard feedback, and better assess the health of the testing infrastructure
 2. Develop a plan for—and a cost estimate of—implementing a CI GitHub Bot for Kata Containers that would help Kata Container developers automate a variety of tasks and run commands via GitHub comments
 3. And, if time permits, implement the GitHub Bot along with a variety of commands that facilitate CI development and transparency
 
@@ -102,7 +102,7 @@ From our preliminary discussions, our currently planned features include:
 
 ***Design Implications and Discussion: This section discusses the implications and reasons of the design decisions made during the global architecture design.***
 
-In terms of the Dashboard, we plan to leverage the existing [Kata Contianers CI Dashboard](https://portersrc.github.io/) to add the desired changes/functionality. In terms of implementation, we will create a testing PR labeling system. This would allow users to:
+In terms of the Dashboard, we plan to leverage the existing [Kata Contianers CI Dashboard](https://kata-containers.github.io/) to add the desired changes/functionality. In terms of implementation, we will create a testing PR labeling system. This would allow users to:
 
 * Group tests into specific categories
 * Display required tests while hiding less important tests
@@ -162,6 +162,8 @@ We plan on 5 major releases, corresponding to the 5 planned sprints throughout t
 
 ## Resources
 
+* Kata board: [https://github.com/orgs/kata-containers/projects/49/views/1](https://github.com/orgs/kata-containers/projects/49/views/1)
+* Dashboard code: [https://github.com/kata-containers/kata-containers.github.io](https://github.com/kata-containers/kata-containers.github.io)
 * Kubernetes and containers: [https://kubernetes.io/](https://kubernetes.io/)
 * Kata containers: [https://katacontainers.io/learn/](https://katacontainers.io/learn/)
 * Kata repo:  [https://github.com/kata-containers/kata-containers](https://github.com/kata-containers/kata-containers)
@@ -170,15 +172,15 @@ We plan on 5 major releases, corresponding to the 5 planned sprints throughout t
 * Architecture: [https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture](https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture)
 * Architecture 3.0: [https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture_3.0](https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture_3.0)
 * Contributing guide: [https://github.com/kata-containers/community/blob/main/CONTRIBUTING.md](https://github.com/kata-containers/community/blob/main/CONTRIBUTING.md)
+* Patch format: [https://github.com/kata-containers/community/blob/main/CONTRIBUTING.md#patch-format](https://github.com/kata-containers/community/blob/main/CONTRIBUTING.md#patch-format)
 * CI guide: [https://github.com/kata-containers/kata-containers/blob/main/ci/README.md](https://github.com/kata-containers/kata-containers/blob/main/ci/README.md)
 * Prow: [https://docs.prow.k8s.io/docs/getting-started-deploy/](https://docs.prow.k8s.io/docs/getting-started-deploy/)
-* Porters: [https://portersrc.github.io/](https://portersrc.github.io/)
 
 ---
 
 ## About
 
-This is a project for BU EC528: Cloud Computing Fundamentals that is intended to implement a GitHub bot for the Kata Containers CI to automate various tasks, as well as implement improvements to the existing [Kata Containers CI Dashboard](https://portersrc.github.io/).
+This is a project for BU EC528: Cloud Computing Fundamentals that is intended to implement a GitHub bot for the Kata Containers CI to automate various tasks, as well as implement improvements to the existing [Kata Containers CI Dashboard](https://kata-containers.github.io/).
 
 ## Installation
 
