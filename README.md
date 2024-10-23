@@ -28,7 +28,7 @@
 
 1. [Sprint 1 Slides](https://docs.google.com/presentation/d/1YY3hOz72ddWBu9trWHyxlHmOa4Xpm7kRqmj7HP0JlaQ/edit#slide=id.g304af07303f_6_6)
 2. [Sprint 2 Slides](https://docs.google.com/presentation/d/1zIPiGBRkyaaVgajAXlqNz-Tdb6NFuN7FT9XffjaEJI0/edit?usp=sharing)
-3. Due by Wednesday, October 23rd/October 30th
+3. [Sprint 3 Slides](https://docs.google.com/presentation/d/1zIPiGBRkyaaVgajAXlqNz-Tdb6NFuN7FT9XffjaEJI0/edit?usp=sharing)
 4. Due by Wednesday, November 6th/November 13th
 5. Due by Wednesday, November 20th/Monday, November 25th
 
