@@ -20,7 +20,7 @@
 
 1. [Sprint 1 Video](https://drive.google.com/file/d/1We9vtgX5poMUT0BkioDxLE8eoD2TF5NO/view?usp=sharing)
 2. [Sprint 2 Video](https://drive.google.com/file/d/15YUULSI2Xe6KHCUbwtsGrMwh4HszdG7H/view?usp=sharing)
-3. Due by Wednesday, October 23rd/October 30th
+3. [Sprint 3 Video](https://drive.google.com/file/d/1qCYdzWGJTecCp1liND09Lp17qN61Xw_1/view?usp=sharing)
 4. Due by Wednesday, November 6th/November 13th
 5. Due by Wednesday, November 20th/Monday, November 25th
 
