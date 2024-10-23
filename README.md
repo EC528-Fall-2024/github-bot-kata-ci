@@ -13,7 +13,7 @@
 
 ## Other Relevant Repositories
 - [Original Dashboard Repo](https://github.com/kata-containers/kata-containers.github.io)
-- [Forked Dashboard Repo](https://github.com/a1icja/kata-dashboard-next) (work mostly done here, PR into origin)
+- [Forked Dashboard Repo](https://github.com/a1icja/kata-dashboard-next) (work mostly done here, PR into original)
 - [Old Forked Dashboard Repo](https://github.com/afinn12/portersrc.github.io) (before switch to React/Next.js, stale)
 
 ## Sprint Demo Videos
@@ -78,16 +78,29 @@ From our preliminary discussions, our currently planned features include:
 
 ***Dashboard:***
 
-- Implement a tree view
-- Implement a way to filter specific tests
-- Implement a way to only take into account required tests
-- Indicate how many required/non-required tests were passed
-- Implement a feature to collapse and expand data regarding each test
-- Implement new views/indexing (currently nightly results indexed by test name):
-  - New: PR results indexed by test name
-  - New: Test results indexed by nightly run
-  - New: Test results indexed by PR run
-- Implement graphs (stretch goal)
+- [x] Switch to React/Next.js
+- [ ] Implement a tree view
+- [x] Implement a way to filter based on URL
+  - [x] Tie filter box in table to URL search function
+- [x] Implement a way to only take into account required tests
+  - [x] Added filter/sort for required tag
+  - [ ] Indicate how many required/non-required tests were passed
+- [x] Implement a feature to collapse and expand data regarding each test
+- [ ] Implement new views/indexing (currently nightly results indexed by test name):
+  - [x] New: PR results indexed by test name
+  - [ ] New: Test results indexed by nightly run
+  - [ ] New: Test results indexed by PR run
+  - [ ] NEW: Single PR view
+- [ ] Add Maintainers list (group to contact about test)
+  - [ ] Design backend/create groupings
+- [x] Indicate if test was rerun
+  - [x] Add number of reruns in dropdown menu
+    - [x] Add individual results of reruns in dropdown menu
+  - [x] Add info to table column
+- [ ] Add ok-to-test-tdx label
+- [ ] Add ability to configure how many runs to display
+- [ ] Make documentation so that dashboard can be applied to any repo
+- [ ] Implement graphs (stretch goal)
 
 ***CI Bot Automation/Commands:***
 
