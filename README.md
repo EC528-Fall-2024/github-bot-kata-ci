@@ -11,6 +11,11 @@
 | Alicja Mahr       | Student | alicja@bu.edu                | a1icja         |
 | Xiteng Yao        | Student | xtyao@bu.edu                 | xtyao66        |
 
+## Other Relevant Repositories
+- [Original Dashboard Repo](https://github.com/kata-containers/kata-containers.github.io)
+- [Forked Dashboard Repo](https://github.com/a1icja/kata-dashboard-next) (work mostly done here, PR into origin)
+- [Old Forked Dashboard Repo](https://github.com/afinn12/portersrc.github.io) (before switch to React/Next.js, stale)
+
 ## Sprint Demo Videos
 
 1. [Sprint 1 Video](https://drive.google.com/file/d/1We9vtgX5poMUT0BkioDxLE8eoD2TF5NO/view?usp=sharing)
