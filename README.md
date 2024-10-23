@@ -6,7 +6,7 @@
 | Archana Choudhary | Mentor  | archana1@microsoft.com       | arc9693        |
 | Saul Paredes      | Mentor  | saulparedes@microsoft.com    | Redent0r       |
 | Anna Finn         | Student | afinn12@bu.edu               | afinn12        |
-| James Knee        | Student | jamesaknee@gmail.com         | JamesKnee      |
+| James Knee        | Student | jknee@bu.edu                 | JamesKnee      |
 | Chris Krenz       | Student | ckrenz@bu.edu                | chris-krenz    |
 | Alicja Mahr       | Student | alicja@bu.edu                | a1icja         |
 | Xiteng Yao        | Student | xtyao@bu.edu                 | xtyao66        |
@@ -27,7 +27,7 @@
 ## Sprint Demo Slides
 
 1. [Sprint 1 Slides](https://docs.google.com/presentation/d/1YY3hOz72ddWBu9trWHyxlHmOa4Xpm7kRqmj7HP0JlaQ/edit#slide=id.g304af07303f_6_6)
-2. [Sprint 2 Slides](https://docs.google.com/presentation/d/1zIPiGBRkyaaVgajAXlqNz-Tdb6NFuN7FT9XffjaEJI0/edit?usp=sharing)
+2. [Sprint 2 Slides](https://docs.google.com/presentation/d/11SlJg44mNMW-6hoD_dekvK64vk646ftpcA0L6TzLGWY/edit?usp=sharing)
 3. [Sprint 3 Slides](https://docs.google.com/presentation/d/1zIPiGBRkyaaVgajAXlqNz-Tdb6NFuN7FT9XffjaEJI0/edit?usp=sharing)
 4. Due by Wednesday, November 6th/November 13th
 5. Due by Wednesday, November 20th/Monday, November 25th
@@ -38,43 +38,56 @@
 
 ## 1.   Vision and Goals Of The Project:
 
-***The vision section describes the final desired state of the project once the project is complete. It also specifies the key goals of the project. This section provides a context for decision-making. A shared vision among all team members can help ensuring that the solution meets the intended goals. A solid vision clarifies perspective and facilitates decision-making.***
-
-***The vision statement should be specific enough that you can look at a proposed solution and say either "yes, this meets the vision and goals", or "no, it does not".***
-
 Kata Containers is an open-source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
 
 As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the project's success. As such, the community is continuously investigating ways to strengthen our testing pipelines and make our processes more efficient.
 
-To that end, the goal of this project will be to:
+To that end, the goals of this project are to:
 
 1. Implement improvements to the recently developed [Kata CI Dashboard](https://kata-containers.github.io/) to visualize CI runs, improve the clarity of the dashboard feedback, and better assess the health of the testing infrastructure
 2. Develop a plan for—and a cost estimate of—implementing a CI GitHub Bot for Kata Containers that would help Kata Container developers automate a variety of tasks and run commands via GitHub comments
 3. And, if time permits, implement the GitHub Bot along with a variety of commands that facilitate CI development and transparency
 
-**Note**: Since the original project proposal, the Kata CI Dashboard was released recently and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we will prioritize dashboard development over the original objective of GitHub Bot development, though the latter remains an important long-term goal.
+**Note**: Since the original project proposal, the Kata CI Dashboard was released recently and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we initially prioritized dashboard development over the original objective of GitHub Bot development, but the latter remains an important project goal.
+
+A high level overview of the project can be found in the following diagram:
+
+![1729668351257](image/README/ProjectArchitecture.png)
+
+This essentially shows the 4 key components of the system:
+
+* GitHub where PR checks and Nightly (or other) CI tests are initiated
+* CI Dashboard where test statuses and related data can be viewed
+* Test Environments where the Kubernetes clusters and Kata containers run
+* Prow—a Kubernetes-based CI/CD pipeline—that facilitates communication between GitHub and the test environments (Prow enables features like allowing developers to rerun specific tests by adding comments to PRs)
+
+These features are discussed further below.
 
 ## 2. Users/Personas Of The Project:
 
-***This section describes the principal user roles of the project together with the key characteristics of these roles. This information will inform the design and the user scenarios. A complete set of roles helps in ensuring that high-level requirements can be identified in the product backlog.***
-
-***Again, the description should be specific enough that you can determine whether user A, performing action B, is a member of the set of users the project is designed for.***
-
 The typical user will be a developer of Kata Containers who is utilizing GitHub-based CI/CD.  More specifically, there are non-maintainers/regular developers and then maintainers/reviewers. Non-maintainers have fewer permissions and any time they update or push code their work needs to be checked before it is run through the testing pipeline.  This is in contrast to maintainers who could be seen more as admins of the system. They ensure code quality as well as review merge requests and pull requests.
 
-Both of these user groups require a UI and tools to easily view and assess the results of their CI tests, though their use cases may differ somewhat.  Maintainers may find it especially useful to have Dashboard features that monitor the health and status of all tests at merge time.  Other (non-maintainer) developers, who are not direclty responsible for approving pull requests or performing merges, may find more utility in commands that can be run prospectively to assess code quality, etc.  Maintainers will be more interested in running all available tests (at least the required tests) to ensure code compatitilbity and stability, whereas non-maintainer developers may prefer to zoom in on specific tests that relate to the particular features they are implementing.
+Both of these user groups require a UI and tools to easily view and assess the results of their CI tests, though their use cases may differ somewhat.  Maintainers may find it especially useful to have Dashboard features that monitor the health and status of all tests at merge time.  Other (non-maintainer) developers, who are not directly responsible for approving pull requests or performing merges, may find more utility in commands that can be run prospectively to assess code quality, etc.  Maintainers will be more interested in running all available tests (at least the required tests) to ensure code compatitilbity and stability, whereas non-maintainer developers may prefer to zoom in on specific tests that relate to the particular features they are implementing. Regardless, all tools—both GitHub commands and Dashboard features—will be available to and useful for any Kata Containers developer.
 
-Regardless, all tools—both GitHub commands and Dashboard features—will be available to and useful for any Kata Containers developer.
+Critical to this project will be the team's ability to communicate and coordinate with the broader Kata Containers developer community in order to identify and properly define the features that will be most useful to the community.  This process of brainstorming and detailed specification/operationalization can be helpful for the community's future development, even for features we are not able to implement ourselves.  To this end, the student team has presented to two developer communities, beyond their core group of mentors:
+
+* [Cloud Native Computing Foundation](https://www.cncf.io/about/who-we-are/) confidential containers (CoCo) )meeting on October 9, 2024
+* OpenInfra Foundation's Project Teams Gathering ([PTG](https://openinfra.dev/ptg/)) meeting on October 21, 2024
+
+At the former meeting, the team presented two options for the CI Dashboard architecture: sticking with the original jQuery implementation or upgrading to Next.js/React.  These options are discussed further in the next section.  During the CoCo meeting, the community approved the team's transition to Next.js/React, which is the architecture the team will further pursue going forward.
 
 ## 3.   Scope and Features Of The Project:
 
-***The Scope places a boundary around the solution by detailing the range of features and functions of the project. This section helps to clarify the solution scope and can explicitly state what will not be delivered as well.***
+The Dashboard repo is currently located [here](https://github.com/kata-containers/kata-containers.github.io), though the student team started implementing these features in two separate repos:
 
-***It should be specific enough that you can determine that e.g. feature A is in-scope, while feature B is out-of-scope.***
+* [Repo](https://github.com/afinn12/portersrc.github.io) with upgrades to the original jQuery (and HTML/CSS) architecture
+* [Repo](https://github.com/a1icja/kata-dashboard-next) with the Next.js/React implementation of the dashboard (deployed Dashboard is accessible [here](https://a1icja.github.io/kata-dashboard-next/))
 
-As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the success of the project.  Critical to this project will be the team's ability to communicate and coordinate with the broader Kata Contaiers developer community in order to identify and properly define the features that will be most useful to the community.  This process of brainstorming and detailed specification/operationalization can be helpful for the community's future development, even for features we are not able to implement ourselves.
+These versions were initially created so the students could explore both implementations—jQuery and Next.js/React—identify the pros/cons of each, and present the two options to the community.  jQuery is a fast, lightweight JS library (simplifies DOM/event manipulations); Next.js is a React-based framework for server-rendered, static, or hybrid web apps; and React is a JS library for UIs with reusable components & declarative style.  Each implementation has its own advantages and disadvantages, but Next.js/React were ultimately chosen, largely to increase development velocity and avoid reinventing the wheel (through the use of pre-defined React components).
 
-From our preliminary discussions, our currently planned features include:
+Currently, the Dashboard runs on a static GitHub Pages page and displays data on both: 1) a battery of tests run Nightly and 2) checks that are run on certain PRs.  The GitHub Bot/Prow are not currently implemented but are being planned.
+
+Here are the features we are currently have implemented or plan to implement.
 
 ***Dashboard:***
 
@@ -102,25 +115,22 @@ From our preliminary discussions, our currently planned features include:
 - [ ] Make documentation so that dashboard can be applied to any repo
 - [ ] Implement graphs (stretch goal)
 
+Here is an example screenshot of the current Next.js/React Dashboard:
+
+![1729668310756](image/README/DashboardScreenshot.png)
+
 ***CI Bot Automation/Commands:***
 
-- Automatically add the ok-to-test label to PRs from maintainers
-- Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
-- Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
-- Create proposal for how to implement a GitHub bot (likely with Prow; will require hosting)
-- Implement commands to set such labels via GitHub comments (stretch goal)
-
-**Note**: This list of features will undoubtedly grow as we continue to interact with the entire community.  We will update these lists with additional features/goals as they become clear.
+  - [x] Early draft proposal for Prow implementation
+  - [ ] Finalize proposal for how to implement a GitHub bot (likely with Prow; will require hosting)
+  - [ ] Automatically add the ok-to-test label to PRs from maintainers
+  - [ ] Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
+  - [ ] Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
+  - [ ] Implement commands to set such labels via GitHub comments (stretch goal)
 
 ## 4. Solution Concept
 
-***This section provides a high-level outline of the solution.***
-
-***Global Architectural Structure Of the Project: T******his section provides a high-level architecture or a conceptual diagram showing the scope of the solution. If wireframes or visuals have already been done, this section could also be used to show how the intended solution will look. This section also provides a walkthrough explanation of the architectural structure.***
-
-***Design Implications and Discussion: This section discusses the implications and reasons of the design decisions made during the global architecture design.***
-
-In terms of the Dashboard, we plan to leverage the existing [Kata Contianers CI Dashboard](https://kata-containers.github.io/) to add the desired changes/functionality. In terms of implementation, we will create a testing PR labeling system. This would allow users to:
+In terms of the Dashboard, we plan to leverage the existing [Kata Containers CI Dashboard](https://kata-containers.github.io/) to add the desired changes/functionality. In terms of implementation, we will create a testing PR labeling system. This would allow users to:
 
 * Group tests into specific categories
 * Display required tests while hiding less important tests
@@ -132,41 +142,111 @@ In terms of the CI Automation and GitHub Bot, we plan to use [Prow](https://docs
 
 Prow allows users to trigger jobs from various types of events and report their status to many  different services. Critically, Prow also provides GitHub automation in the form of policy enforcement, chat-ops via /foo style commands, and automatic PR merging.  These features make Prow a perfect fit for the current project.
 
+Here is a draft of our initial plans for how to deploy Prow:
+
+1. Set Up Kubernetes Cluster on Azure
+
+   * I have already tested with a very simple hello world program
+2. Deploy Prow Components
+
+   * Need to configure prow’s components including hook, plank, deck, and tide
+   * Need to monitor and log the health of Prow
+3. Configure GitHub Integration
+
+   * Create a Github app and link it to Prow’s hook
+   * Will require proper authentication to ensure that prow will not be triggered incorrectly
+4. Implement CI/CD Pipelines
+
+   * Should be able to automatically test and build kata containers on branch changes
+   * Maybe able to reuse the existing CI/CD workflow
+5. Set Up a Database for CI/CD Results
+
+   * A database will be needed to store the CI/CD results
+   * Potentially use Azure Cosmos DB or table DB
+6. Show the Pipeline results on our webpage
+
+   * May use Prow’s deck component to show results directly
+   * Need to set up DB access for more advanced operations
+
 See the images below for an overview of the architectures for both Kata Contains and Prow.
+
+#### Kata Containers Overview
 
 ![Architecture diagram](https://katacontainers.io/static/589e3d905652847b22c395fe6bbbace7/8fef6/katacontainers_architecture_diagram.jpg)
 
+This diagram shows a basic Kata Containers architecture.  Unlike traditional containers, Kata Containers run inside lightweight VMs.
+
+Inside each VM, an agent runs, managing container processes inside the VM. The agent receives gRPC calls from the Kata Shim to perform actions like starting or stopping containers.
+
+Here is a summary of each component:
+
+* Kubernetes: Manages the lifecycle of containers using the OCI (Open Container Initiative).
+* Kata Shim V2: Acts as a proxy between the Kubernetes container runtime and the virtual machine running the container. OCI commands/specs are passed from Kubernetes to the Kata Shim, which translates them into gRPC calls (or Google Remote Procedure Calls–a modern, high-performance, open-source framework for inter-process communication (IPC) between applications.)
+* Hypervisor: Kata Containers rely on a hypervisor (we will be using QEMU) to manage the lightweight VMs, ensuring strong isolation and superior security compared to a traditional container.
+* VSOCK: Enables fast and secure communication between the Kata Shim and the VM, bypassing traditional networking overhead and efficient gRPC communication between the Kubernetes runtime (outside) and the agent inside the VM.
+
+In summary:
+
+* Kubernetes sends container commands.
+* Kata Shim V2 translates those commands into gRPC calls for the VM.
+* The agent inside the VM runs container workloads within lightweight VMs for enhanced security.
+* VSOCK provides efficient communication between the Kata Shim and the VM.
+
+#### Prow Overview
+
 ![1726854857223](image/README/ProwArchitecture.png)
 
-## 5. Acceptance criteria
+This diagram illustrates how Prow integrates GitHub, Kubernetes, and various plugins to automate continuous integration (CI) tasks like testing, retesting, reporting, and merging PRs.
 
-***This section discusses the minimum acceptance criteria at the end of the project and stretch goals.***
+An example Prow flow would be:
+
+1. PR Created: A contributor opens a PR in the Kata Containers GitHub repo.
+2. Prow Triggers Tests: Prow automatically triggers CI jobs defined for Kata Containers (e.g., tests that run Kata Containers on different configurations).
+3. Bot Feedback: The Prow GitHub bot comments on the PR with test results. Developers can use bot commands (e.g., /retest) to interact with it.
+4. Merge After Approval: Once tests pass and approvals are obtained (e.g., via /approve), Prow can merge the PR automatically.
+
+The different pieces of the diagram can be understood as follows:
+
+* GitHub Interaction:
+  * Webhooks trigger actions when pull requests (PRs) are opened, commented on, or updated.
+  * GitHub commands like /retest or /meow (which are handled by Prow plugins) can be used in PR comments to trigger certain CI/CD workflows.
+* Prow Components:
+  * Webhook Handler: Receives webhooks from GitHub and forwards them to Prow for further actions.
+  * Tide: Handles retesting and automatic merging of PRs if all conditions are met.
+  * Crier: Reports status and results (e.g., pass/fail) back to GitHub.
+  * Horologium: Manages scheduled jobs, creating new ones at specific intervals.
+  * Sinker: Cleans up old jobs and resources, such as Pods, after they are no longer needed.
+* Job Management:
+  * Prowjobs: A key concept in Prow. These are Kubernetes CRDs (Custom Resource Definitions) that define and track the CI/CD jobs.
+  * Build Cluster: Where the actual job execution (e.g., running tests in Pods) happens.
+  * Pods: The jobs are run as Pods inside the Kubernetes cluster.
+* Deck: The dashboard for visualizing job status and results.
+
+## 5. Acceptance criteria
 
 These features are elaborated on in greater detail in **Section 3** above.  This section provides a brief summary of the features.
 
 #### Minimum Viable Product:
 
 * CI Dashboard:
-  * New tree view
-  * New filtering options
-  * New indexing/sorting options
+  * New filtering, sorting, and search options
+  * PR data
+  * Additional info, such as maintainer info
 * CI Automation
-  * Ability to automatically add/remove test labels to PRs
-  * Have labels that trigger a subset of tests to be run
-* A detailed plan for how our team—or the community—can implement a GitHub Bot and associated CI/CD commands
+  * Implementation of additional PR labels that control CI tests
+  * A detailed plan for how our team—or the community—can implement a GitHub Bot and associated CI/CD commands
 
 #### Stretch Goals:
 
 * Dashboard
   * Implement graphs
+  * Implement a tree view
 * CI Automation and GitHub Bot
+  * Implement a basic backend to manage data fetching
+  * Implement Prow
   * Implement commands to set labels via GitHub comments
 
-**Note**: As we communicate further with the community, we will undoubtedly add to these feature lists— both for the MVP and the Stretch goals.
-
 ## 6.  Release Planning:
-
-***Release planning section describes how the project will deliver incremental sets of features and functions in a series of releases to completion. Identification of user stories associated with iterations that will ease/guide sprint planning sessions is encouraged. Higher level details for the first iteration is expected.***
 
 We plan on 5 major releases, corresponding to the 5 planned sprints throughout the semester:
 
@@ -175,8 +255,6 @@ We plan on 5 major releases, corresponding to the 5 planned sprints throughout t
 3. Creation of placeholder GitHub Bot and further improvements to the Dashboard
 4. Implement labels for the PRs and, if time permits, implementation of GitHub Bot commands
 5. Finalize and test features
-
-**Note**: Once our sprint schedule is known, we will update this section with specific sprint/release dates.
 
 ## Resources
 
@@ -204,11 +282,10 @@ This is a project for BU EC528: Cloud Computing Fundamentals that is intended to
 
 Kata Containers: [https://github.com/kata-containers/kata-containers/pull/10335](https://github.com/kata-containers/kata-containers/pull/10335)
 
-#### Dependencies
+The installation and running of the CI Dashboards are discussed further in those repos:
 
-## Usage
-
-#### Examples
+* Current Kata Dashboard [repo](https://github.com/kata-containers/kata-containers.github.io)
+* Next.js/React Dashboard [repo](https://github.com/a1icja/kata-dashboard-next) that will ultimately replace the jQuery version
 
 ## License
 
