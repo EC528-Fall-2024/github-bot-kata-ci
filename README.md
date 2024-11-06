@@ -21,7 +21,7 @@
 1. [Sprint 1 Video](https://drive.google.com/file/d/1We9vtgX5poMUT0BkioDxLE8eoD2TF5NO/view?usp=sharing)
 2. [Sprint 2 Video](https://drive.google.com/file/d/15YUULSI2Xe6KHCUbwtsGrMwh4HszdG7H/view?usp=sharing)
 3. [Sprint 3 Video](https://drive.google.com/file/d/1qCYdzWGJTecCp1liND09Lp17qN61Xw_1/view?usp=sharing)
-4. Due by Wednesday, November 6th/November 13th
+4. [Sprint 4 Video](https://drive.google.com/file/d/1ygEmctDjnu6iLNQIfxE3_Ri0lu93uumF/view?usp=sharing)
 5. Due by Wednesday, November 20th/Monday, November 25th
 
 ## Sprint Demo Slides
@@ -29,7 +29,7 @@
 1. [Sprint 1 Slides](https://docs.google.com/presentation/d/1YY3hOz72ddWBu9trWHyxlHmOa4Xpm7kRqmj7HP0JlaQ/edit#slide=id.g304af07303f_6_6)
 2. [Sprint 2 Slides](https://docs.google.com/presentation/d/11SlJg44mNMW-6hoD_dekvK64vk646ftpcA0L6TzLGWY/edit?usp=sharing)
 3. [Sprint 3 Slides](https://docs.google.com/presentation/d/1zIPiGBRkyaaVgajAXlqNz-Tdb6NFuN7FT9XffjaEJI0/edit?usp=sharing)
-4. Due by Wednesday, November 6th/November 13th
+4. [Sprint 4 Slides](https://docs.google.com/presentation/d/1JWvncefIY-mVV4SW9QUd362THwFW1hYgPA8rdsd-TDk/edit?usp=sharing)
 5. Due by Wednesday, November 20th/Monday, November 25th
 
 ## Final Presentation
