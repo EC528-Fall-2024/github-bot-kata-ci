@@ -83,7 +83,7 @@ Critical to this project was be the team's ability to communicate and coordinate
 * [Cloud Native Computing Foundation](https://www.cncf.io/about/who-we-are/) confidential containers (CoCo) )meeting on October 9, 2024
 * OpenInfra Foundation's Project Teams Gathering ([PTG](https://openinfra.dev/ptg/)) meeting on October 21, 2024
 
-For example, at the first meeting, the team presented two options for the CI Dashboard architecture: sticking with the original jQuery implementation or upgrading to Next.js/React.  These options are discussed further in the next section.  During the CoCo meeting, the community approved the team's transition to Next.js/React, which is the architecture the team will further pursue going forward.
+For example, at the first meeting, the team presented two options for the CI Dashboard architecture: sticking with the original jQuery implementation or upgrading to Next.js/React.  These options are discussed further in the next section.  During the CoCo meeting, the community approved the team's transition to Next.js/React, which is the architecture the team implemented.
 
 ## 3.   Scope and Features Of The Project:
 
@@ -214,7 +214,7 @@ Here is a summary of each component:
 
 * Kubernetes: Manages the lifecycle of containers using the OCI (Open Container Initiative).
 * Kata Shim V2: Acts as a proxy between the Kubernetes container runtime and the virtual machine running the container. OCI commands/specs are passed from Kubernetes to the Kata Shim, which translates them into gRPC calls (or Google Remote Procedure Calls–a modern, high-performance, open-source framework for inter-process communication (IPC) between applications.)
-* Hypervisor: Kata Containers rely on a hypervisor (we will be using QEMU) to manage the lightweight VMs, ensuring strong isolation and superior security compared to a traditional container.
+* Hypervisor: Kata Containers rely on a hypervisor (we used QEMU) to manage the lightweight VMs, ensuring strong isolation and superior security compared to a traditional container.
 * VSOCK: Enables fast and secure communication between the Kata Shim and the VM, bypassing traditional networking overhead and efficient gRPC communication between the Kubernetes runtime (outside) and the agent inside the VM.
 
 In summary:
@@ -323,7 +323,7 @@ Kata Containers: [https://github.com/kata-containers/kata-containers/pull/10335]
 The installation and running of the CI Dashboards are discussed further in those repos:
 
 * Current Kata Dashboard [repo](https://github.com/kata-containers/kata-containers.github.io)
-* Next.js/React Dashboard [repo](https://github.com/a1icja/kata-dashboard-next) that will ultimately replace the jQuery version
+* Next.js/React Dashboard [repo](https://github.com/a1icja/kata-dashboard-next) that ultimately replaced the jQuery version
 
 ## Dashboard Instructions
 
