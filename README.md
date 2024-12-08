@@ -1,3 +1,10 @@
+
+## [MAIN DASHBOARD REPOSITORY](https://github.com/kata-containers/kata-containers.github.io)
+- (Instructions below and in this repo)
+
+## [DEPLOYED DASHBOARD](https://kata-containers.github.io/)
+
+
 ## Collaborators
 
 | Names             | Roles   | Emails                       | GitHub Handles |
@@ -11,11 +18,6 @@
 | Alicja Mahr       | Student | alicja@bu.edu                | a1icja         |
 | Xiteng Yao        | Student | xtyao@bu.edu                 | xtyao66        |
 
-
-## [MAIN DASHBOARD REPOSITORY](https://github.com/kata-containers/kata-containers.github.io)
-- (Instructions below and in this repo)
-
-## [DEPLOYED DASHBOARD](https://kata-containers.github.io/)
 
 ## Other Relevant Repositories
 - [Original Dashboard Repo](https://github.com/kata-containers/kata-containers.github.io)
