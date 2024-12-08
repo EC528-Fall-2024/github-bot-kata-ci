@@ -41,7 +41,9 @@
 
 ## Final Presentation
 
-1. Due by Monday, December 9th/Wednesday, December 11th
+* [Presentation](https://drive.google.com/file/d/1NMbA7HrLLp7KjLt1C25P3nxwJhRIfru7/view)
+* [Slides](https://docs.google.com/presentation/d/1fArOblI6RxerWxFWaAetssDYMQYcX-Zrg8bEyxsIdtU/edit?usp=sharing)
+
 
 ## 1.   Vision and Goals Of The Project:
 
