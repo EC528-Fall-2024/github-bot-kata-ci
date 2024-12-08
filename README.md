@@ -1,9 +1,8 @@
-
 ## [MAIN DASHBOARD REPOSITORY](https://github.com/kata-containers/kata-containers.github.io)
+
 - (Instructions below and in this repo)
 
 ## [DEPLOYED DASHBOARD](https://kata-containers.github.io/)
-
 
 ## Collaborators
 
@@ -18,8 +17,8 @@
 | Alicja Mahr       | Student | alicja@bu.edu                | a1icja         |
 | Xiteng Yao        | Student | xtyao@bu.edu                 | xtyao66        |
 
-
 ## Other Relevant Repositories
+
 - [Original Dashboard Repo](https://github.com/kata-containers/kata-containers.github.io)
 - [Forked Dashboard Repo](https://github.com/a1icja/kata-dashboard-next) (work mostly done here, PR into original)
 - [Old Forked Dashboard Repo](https://github.com/afinn12/portersrc.github.io) (before switch to React/Next.js, stale)
@@ -42,7 +41,9 @@
 
 ## Final Presentation
 
-1. Due by Monday, December 9th/Wednesday, December 11th
+* [Presentation](https://drive.google.com/file/d/1NMbA7HrLLp7KjLt1C25P3nxwJhRIfru7/view)
+* [Slides](https://docs.google.com/presentation/d/1fArOblI6RxerWxFWaAetssDYMQYcX-Zrg8bEyxsIdtU/edit?usp=sharing)
+
 
 ## 1.   Vision and Goals Of The Project:
 
@@ -50,13 +51,13 @@ Kata Containers is an open-source community working to build a secure container 
 
 As Kata Containers support many different systems, architectures, hypervisors, and other underlying technologies, CI (continuous integration) along with a stable and automated test environment are paramount to the project's success. As such, the community is continuously investigating ways to strengthen our testing pipelines and make our processes more efficient.
 
-To that end, the goals of this project are to:
+To that end, the primary goals of this project were to:
 
 1. Implement improvements to the recently developed [Kata CI Dashboard](https://kata-containers.github.io/) to visualize CI runs, improve the clarity of the dashboard feedback, and better assess the health of the testing infrastructure
 2. Develop a plan for—and a cost estimate of—implementing a CI GitHub Bot for Kata Containers that would help Kata Container developers automate a variety of tasks and run commands via GitHub comments
 3. And, if time permits, implement the GitHub Bot along with a variety of commands that facilitate CI development and transparency
 
-**Note**: Since the original project proposal, the Kata CI Dashboard was released recently and has become a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offers a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we initially prioritized dashboard development over the original objective of GitHub Bot development, but the latter remains an important project goal.
+**Note**: Since the original project proposal, the Kata CI Dashboard was released and became a focal point of the community's efforts to improve Kata Container CI/CD.  The dashboard offered a timely and valuable opportunity to deliver impactful CI/CD functionality to the developer community.  As such, we initially prioritized dashboard development over the original objective of GitHub Bot development.  That said, we did invest a bit more time into the GitHub Bot toward the end of the semester, after it was clear the Dashboard feastures were all on track.
 
 A high level overview of the project can be found in the following diagram:
 
@@ -77,12 +78,12 @@ The typical user will be a developer of Kata Containers who is utilizing GitHub-
 
 Both of these user groups require a UI and tools to easily view and assess the results of their CI tests, though their use cases may differ somewhat.  Maintainers may find it especially useful to have Dashboard features that monitor the health and status of all tests at merge time.  Other (non-maintainer) developers, who are not directly responsible for approving pull requests or performing merges, may find more utility in commands that can be run prospectively to assess code quality, etc.  Maintainers will be more interested in running all available tests (at least the required tests) to ensure code compatitilbity and stability, whereas non-maintainer developers may prefer to zoom in on specific tests that relate to the particular features they are implementing. Regardless, all tools—both GitHub commands and Dashboard features—will be available to and useful for any Kata Containers developer.
 
-Critical to this project will be the team's ability to communicate and coordinate with the broader Kata Containers developer community in order to identify and properly define the features that will be most useful to the community.  This process of brainstorming and detailed specification/operationalization can be helpful for the community's future development, even for features we are not able to implement ourselves.  To this end, the student team has presented to two developer communities, beyond their core group of mentors:
+Critical to this project was be the team's ability to communicate and coordinate with the broader Kata Containers developer community in order to identify and properly define the features that would be most useful to the community.  This process of brainstorming and operationalizing can be helpful for the community's future development, even for features we were not able to implement ourselves.  To this end, the student team presented to two developer communities, beyond their core group of mentors:
 
 * [Cloud Native Computing Foundation](https://www.cncf.io/about/who-we-are/) confidential containers (CoCo) )meeting on October 9, 2024
 * OpenInfra Foundation's Project Teams Gathering ([PTG](https://openinfra.dev/ptg/)) meeting on October 21, 2024
 
-At the former meeting, the team presented two options for the CI Dashboard architecture: sticking with the original jQuery implementation or upgrading to Next.js/React.  These options are discussed further in the next section.  During the CoCo meeting, the community approved the team's transition to Next.js/React, which is the architecture the team will further pursue going forward.
+For example, at the first meeting, the team presented two options for the CI Dashboard architecture: sticking with the original jQuery implementation or upgrading to Next.js/React.  These options are discussed further in the next section.  During the CoCo meeting, the community approved the team's transition to Next.js/React, which is the architecture the team will further pursue going forward.
 
 ## 3.   Scope and Features Of The Project:
 
@@ -93,33 +94,33 @@ The Dashboard repo is currently located [here](https://github.com/kata-container
 
 These versions were initially created so the students could explore both implementations—jQuery and Next.js/React—identify the pros/cons of each, and present the two options to the community.  jQuery is a fast, lightweight JS library (simplifies DOM/event manipulations); Next.js is a React-based framework for server-rendered, static, or hybrid web apps; and React is a JS library for UIs with reusable components & declarative style.  Each implementation has its own advantages and disadvantages, but Next.js/React were ultimately chosen, largely to increase development velocity and avoid reinventing the wheel (through the use of pre-defined React components).
 
-Currently, the Dashboard runs on a static GitHub Pages page and displays data on both: 1) a battery of tests run Nightly and 2) checks that are run on certain PRs.  The GitHub Bot/Prow are not currently implemented but are being planned.
+Currently, the Dashboard runs on a static GitHub Pages page and displays data on both: 1) a battery of tests run Nightly and 2) checks that are run on certain PRs.  The GitHub Bot--implemented via Prow, which is discussed further below--is not currently implemented but is being planned.
 
-Here are the features we are currently have implemented or plan to implement.
+Here are the features we currently have implemented or plan to implement.
 
 ***Dashboard:***
 
-- [x] Switch to React/Next.js
-- [x] Implement a way to filter using the URL
-- [x] Implement a way to only take into account required tests
-  - [x] Added filter/sort for required tag
-- [x] Implement a feature to collapse and expand data regarding each test
-- [x] Implement new views/indexing (currently nightly results indexed by test name):
-  - [x] PR results indexed by test name
-  - [x] Test results indexed by PR run
-  - [x] Single PR view
-- [x] Authenticate fetch scripts to raise rate limits
-- [x] Fetch data on changes to fetch scripts (if new data is required)  
-- [x] Add Maintainers list (group to contact about test)
-  - [x] Design backend/create groupings
-  - [x] Allow community to update these mappings
-- [x] Indicate if test was rerun
-  - [x] Add number of reruns in dropdown menu
-    - [x] Add individual results of reruns in dropdown menu
-  - [x] Add info to table column
-- [x] Add ok-to-test-tdx label
-- [x] Default sort by worst performing job/check
-- [x] Create CoCo dashboard using iFrame to easily replicate for other communities
+- [X] Switch to React/Next.js
+- [X] Implement a way to filter using the URL
+- [X] Implement a way to only take into account required tests
+  - [X] Added filter/sort for required tag
+- [X] Implement a feature to collapse and expand data regarding each test
+- [X] Implement new views/indexing (currently nightly results indexed by test name):
+  - [X] PR results indexed by test name
+  - [X] Test results indexed by PR run
+  - [X] Single PR view
+- [X] Authenticate fetch scripts to raise rate limits
+- [X] Fetch data on changes to fetch scripts (if new data is required)
+- [X] Add Maintainers list (group to contact about test)
+  - [X] Design backend/create groupings
+  - [X] Allow community to update these mappings
+- [X] Indicate if test was rerun
+  - [X] Add number of reruns in dropdown menu
+    - [X] Add individual results of reruns in dropdown menu
+  - [X] Add info to table column
+- [X] Add ok-to-test-tdx label
+- [X] Default sort by worst performing job/check
+- [X] Create CoCo dashboard using iFrame to easily replicate for other communities
 
 ## Screenshots of Dashboard:
 
@@ -129,58 +130,75 @@ Here are the features we are currently have implemented or plan to implement.
 ![image](https://github.com/user-attachments/assets/6b5c9680-51b5-4eea-baec-47892e7c8cfb)
 
 ## Notes
+
 - Clicking on the Maintainer's Github/slack opens links to the person's account
 - CLicking on the run/check number or rerun attempt result opens the job/check in Github
 - URL search and display (Nightly/PR/Single) is appended to the URL
 
 ***CI Bot Automation/Commands:***
 
-  - [x] Early draft proposal for Prow implementation
-  - [ ] Finalize proposal for how to implement a GitHub bot (likely with Prow; will require hosting)
-  - [ ] Automatically add the ok-to-test label to PRs from maintainers
-  - [ ] Automatically remove the ok-to-test label after every push to increase security (for non-maintainers)
-  - [ ] Implement labels that trigger specific subsets of tests (e.g. ok-to-test-perf)
-  - [ ] Implement commands to set such labels via GitHub comments (stretch goal)
+- [X] Early draft proposal for Prow implementation
+- [X] Get rough cost estimate for AKS deployment
+- [X] Finalize proposal for Prow implementation
+- [X] Develop documentation to help the community deploy Prow
+- [ ] Fully implement and test Prow
 
 ## 4. Solution Concept
 
-In terms of the Dashboard, we plan to leverage the existing [Kata Containers CI Dashboard](https://kata-containers.github.io/) to add the desired changes/functionality. In terms of implementation, we will create a testing PR labeling system. This would allow users to:
+In terms of the Dashboard, we built on the existing [Kata Containers CI Dashboard](https://kata-containers.github.io/) to add the desired changes/functionality, and we leveraged a testing PR labeling system that allows users to:
 
 * Group tests into specific categories
 * Display required tests while hiding less important tests
 * Set which tests to be run for which PRs
 
-In general, we will reference the CI pipeline that was just run for a given job and then add the corresponding results to the Dashboard. When doing this we will give the entries different properties and labels that allow us to develop different ways of viewing the information. The labels, including the ones mentioned above, would have to be implemented in the CI pipeline automation.
+At a high level, fetch scripts are executed to pull data on nightly runs and PR checks, the results of which are then displayed in the Dashboard.
 
-In terms of the CI Automation and GitHub Bot, we plan to use [Prow](https://docs.prow.k8s.io/docs/getting-started-deploy/)—a Kubernetes based CI/CD system.  However, this is deployed in a Kubernetes cluster and so will require hosting with a cloud provider.  Since this comes with a non-negligible cost, one of our first goals will be to assess this cost and flesh out the implementation details.  Our current plan is to use Azure Kubernetes Service, as Microsoft is already sponsoring the Kata project.
+In terms of the CI Automation and GitHub Bot, we followed our mentors' suggestion to use [Prow](https://docs.prow.k8s.io/docs/getting-started-deploy/)—a Kubernetes based CI/CD system.  However, this is deployed in a Kubernetes cluster and so requires hosting with a cloud provider.  Since this comes with a non-negligible cost, one of our first goals was to assess this cost and flesh out the implementation details.  Our primary goal was to use Azure Kubernetes Service (AKS), as Microsoft is already sponsoring the Kata project.  However, we did simultaneously pursue development on Google Kubernetes Engine (GKE) for a few reasons:
 
-Prow allows users to trigger jobs from various types of events and report their status to many  different services. Critically, Prow also provides GitHub automation in the form of policy enforcement, chat-ops via /foo style commands, and automatic PR merging.  These features make Prow a perfect fit for the current project.
+- $300 worth of free credits offered by Google
+- This allowed multiple developers to work in parallel
+- Obstacles identified in GKE informed the implementation in AKS
 
-Here is a draft of our initial plans for how to deploy Prow:
+Prow allows users to trigger jobs from various types of events and report their status to many  different services. Critically, Prow also provides GitHub automation in the form of policy enforcement, chat-ops via /foo style commands, and automatic PR merging.  These features made Prow a good fit for the project.
+
+Additional information on Prow and steps on how to implement it can be found [here](https://docs.google.com/document/d/17UyHFISMm3XhTnqK5VWlg2GftkLSPbJdtMezvP_CWqc/edit?tab=t.0#heading=h.qgcjy19595ny).
+
+Here is a high level overview of the steps
 
 1. Set Up Kubernetes Cluster on Azure
 
-   * I have already tested with a very simple hello world program
+   * Deployed on both AKS and GKE for testing
 2. Deploy Prow Components
 
-   * Need to configure prow’s components including hook, plank, deck, and tide
-   * Need to monitor and log the health of Prow
+   * Deployed the following pods:
+     * crier (reports job statuses to GitHub)
+     * deck (displays pipeline results and logs)
+     * ghproxy (caches and throttles requests to the GitHub API to optimize usage and avoid rate limits)
+     * hook (receives GitHub webhook and triggers jobs)
+     * horologium (scheduels periodic jobs)
+     * prow-controller-manager (manages job execution in build cluster)
+     * sinker (cleans up old jobs and pods)
+     * statusreconciler (ensures job statuses in Prow and GitHub remain consistent by reconciling discrepancies)
+     * tide (automates PR merges on test results)
+   * Still need to configure storage properly on AKS (MinIO presented significant challenge in AKS)
 3. Configure GitHub Integration
 
-   * Create a Github app and link it to Prow’s hook
-   * Will require proper authentication to ensure that prow will not be triggered incorrectly
+   * Created a Github app and linked it to Prow’s hook
 4. Implement CI/CD Pipelines
 
-   * Should be able to automatically test and build kata containers on branch changes
-   * Maybe able to reuse the existing CI/CD workflow
+   * In progress
+   * At least in GKE: tests can be run in Prow but not yet initiated from GitHub
 5. Set Up a Database for CI/CD Results
 
+   * In progress
    * A database will be needed to store the CI/CD results
    * Potentially use Azure Cosmos DB or table DB
 6. Show the Pipeline results on our webpage
 
-   * May use Prow’s deck component to show results directly
-   * Need to set up DB access for more advanced operations
+   * In progress
+   * Use Deck to display results through a UI
+   * For advanced filtering or historical views, connect the web interface to the CI/CD results database
+   * Implement role-based access for secure viewing
 
 See the images below for an overview of the architectures for both Kata Contains and Prow.
 
@@ -236,6 +254,14 @@ The different pieces of the diagram can be understood as follows:
   * Pods: The jobs are run as Pods inside the Kubernetes cluster.
 * Deck: The dashboard for visualizing job status and results.
 
+Regarding the cost estimate, after experimenting, we came up with the following:
+ - 1 cluster with 1 node of low-tier processor is enough
+ - 100 GB blob storage should be enough
+ - Estimated cost of around $100
+
+We will provide further details on this in our final report to the Kata community.
+
+
 ## 5. Acceptance criteria
 
 These features are elaborated on in greater detail in **Section 3** above.  This section provides a brief summary of the features.
@@ -247,10 +273,11 @@ These features are elaborated on in greater detail in **Section 3** above.  This
   * PR data
   * Additional info, such as maintainer info
 * CI Automation
-  * Implementation of additional PR labels that control CI tests
+  * (This goal was abandoned given its overlap with Prow) Implementation of additional PR labels that control CI tests
+  * (Instead, this became the focus) Experiment with Prow and come up with a rough cost estimate
   * A detailed plan for how our team—or the community—can implement a GitHub Bot and associated CI/CD commands
 
-#### Stretch Goals:
+#### Original Stretch Goals:
 
 * Dashboard
   * Implement graphs
@@ -260,15 +287,12 @@ These features are elaborated on in greater detail in **Section 3** above.  This
   * Implement Prow
   * Implement commands to set labels via GitHub comments
 
-## 6.  Release Planning:
+We were able to complete our MVP goals, though did not complete all stretch goals.  
 
-We plan on 5 major releases, corresponding to the 5 planned sprints throughout the semester:
+Progress on Prow was slowed due to outdated documentation, concerns about cost, and depioritization by the mentors. However, the team was able to experiment with Prow and will present these results to the community.
 
-1. Project setup, implementation of and experimentation with Kata Containers, skeletons of planned Dashboard features, and basic research on a potential Bot implementation
-2. Substantive improvements to existing CI Dashboard (visualizations and health checks) and research into a GitHub Bot implementation
-3. Creation of placeholder GitHub Bot and further improvements to the Dashboard
-4. Implement labels for the PRs and, if time permits, implementation of GitHub Bot commands
-5. Finalize and test features
+Progress on these specific Dashboard features was slowed by lengthy processes for merging to the Dashboard repo. However, the team was able to pursue other objectives not listed here, such as a CoCo Dashboard (using an iFrame to the Kata Dashboard)
+
 
 ## Resources
 
@@ -306,6 +330,7 @@ The installation and running of the CI Dashboards are discussed further in those
 This repository contains the **Kata Containers Test Dashboard**, a web application that visualizes data for the nightly tests run by the Kata Containers repository. Built using **Next.js** and styled with **TailwindCSS**, this dashboard provides a simple and efficient interface to monitor test results, leveraging modern frontend technologies to ensure responsive and scalable performance.
 
 ### Features
+
 - Fetches nightly CI test data using custom scripts.
 - Displays weather-like icons to reflect test statuses (e.g., sunny for success, stormy for failures).
 - Utilizes **Next.js** for server-side rendering and optimized builds.
@@ -341,6 +366,7 @@ This repository contains the **Kata Containers Test Dashboard**, a web applicati
 ```
 
 #### Key Files
+
 - **`pages/index.js`**: The main entry point of the dashboard, displaying test results and their statuses.
 - **`scripts/fetch-ci-nightly-data.js`**: Custom script to retrieve CI data for the dashboard.
 - **`styles/globals.css`**: Custom global styles, mainly extending the TailwindCSS base.
@@ -353,19 +379,21 @@ This repository contains the **Kata Containers Test Dashboard**, a web applicati
 Follow these steps to set up the development environment for the Kata Containers Test Dashboard:
 
 #### Prerequisites
+
 - [**Node.js**](https://nodejs.org/en/download) (version 18.x or later recommended)
 - **npm** (comes with Node.js)
 
 #### Installation
 
 1. **Clone the dashboard repository**:
+
    ```bash
    git clone https://github.com/kata-containers/kata-containers.github.io.git
    cd kata-containers.github.io
    ```
-
 2. **Install dependencies**:
    Run the following command to install both the project dependencies and development dependencies.
+
    ```bash
    npm install
    ```
@@ -376,8 +404,9 @@ Follow these steps to set up the development environment for the Kata Containers
    Start the Next.js development server with hot-reloading enabled.
 
    To run the script to fetch the data, a .env file must be created with an access token. This is required to authenticate our calls and increase the rate limit. To get the token, click [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-   
+
    Create the .env file:
+
    ```bash
     NODE_ENV=development
     TOKEN=<GITHUB_PAT_OR_OTHER_VALID_TOKEN>
@@ -389,28 +418,33 @@ Follow these steps to set up the development environment for the Kata Containers
    node scripts/fetch-ci-nightly-data.js > localData/job_stats.json
    npm run dev    # On Windows, run `npm run win-dev` instead.
    ```
+
    The app will be available at [http://localhost:3000](http://localhost:3000).
 
 #### Production
 
 4. **Build for production**:
    To create an optimized production build, run:
+
    ```bash
    npm run build
    ```
-
 5. **Start the production server**:
    After building, you can start the server:
+
    ```bash
    npm start
    ```
 
 #### Notes
-In deploy.yml: 
- ```bash
+
+In deploy.yml:
+
+```bash
 env:
    NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
 ```
+
 If the variable is undefined, it will use "" for the basePath and assume the site is being served at root.
 This makes it easier for people to fork the repo and deploy with GitHub pages such that they can have a preview for their PR.
 
