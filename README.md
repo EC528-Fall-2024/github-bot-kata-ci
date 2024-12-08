@@ -98,32 +98,38 @@ Here are the features we are currently have implemented or plan to implement.
 ***Dashboard:***
 
 - [x] Switch to React/Next.js
-- [ ] Implement a tree view
-- [x] Implement a way to filter based on URL
-  - [x] Tie filter box in table to URL search function
+- [x] Implement a way to filter using the URL
 - [x] Implement a way to only take into account required tests
   - [x] Added filter/sort for required tag
-  - [ ] Indicate how many required/non-required tests were passed
 - [x] Implement a feature to collapse and expand data regarding each test
-- [ ] Implement new views/indexing (currently nightly results indexed by test name):
-  - [x] New: PR results indexed by test name
-  - [ ] New: Test results indexed by nightly run
-  - [ ] New: Test results indexed by PR run
-  - [ ] NEW: Single PR view
-- [ ] Add Maintainers list (group to contact about test)
-  - [ ] Design backend/create groupings
+- [x] Implement new views/indexing (currently nightly results indexed by test name):
+  - [x] PR results indexed by test name
+  - [x] Test results indexed by PR run
+  - [x] Single PR view
+- [x] Authenticate fetch scripts to raise rate limits
+- [x] Fetch data on changes to fetch scripts (if new data is required)  
+- [x] Add Maintainers list (group to contact about test)
+  - [x] Design backend/create groupings
+  - [x] Allow community to update these mappings
 - [x] Indicate if test was rerun
   - [x] Add number of reruns in dropdown menu
     - [x] Add individual results of reruns in dropdown menu
   - [x] Add info to table column
-- [ ] Add ok-to-test-tdx label
-- [ ] Add ability to configure how many runs to display
-- [ ] Make documentation so that dashboard can be applied to any repo
-- [ ] Implement graphs (stretch goal)
+- [x] Add ok-to-test-tdx label
+- [x] Default sort by worst performing job/check
+- [x] Create CoCo dashboard using iFrame to easily replicate for other communities
 
-Here is an example screenshot of the current Next.js/React Dashboard:
+## Screenshots of Dashboard:
 
-![1729668310756](image/README/DashboardScreenshot.png)
+![image](https://github.com/user-attachments/assets/89037c60-f4b0-4a74-ab0b-fcc73f2c5955)
+![image](https://github.com/user-attachments/assets/6f9d5f60-e105-468b-be4b-42660f77cab3)
+![image](https://github.com/user-attachments/assets/cb43fa37-750e-468e-a752-d7b3fba7f8b9)
+![image](https://github.com/user-attachments/assets/6b5c9680-51b5-4eea-baec-47892e7c8cfb)
+
+## Notes
+- Clicking on the Maintainer's Github/slack opens links to the person's account
+- CLicking on the run/check number or rerun attempt result opens the job/check in Github
+- URL search and display (Nightly/PR/Single) is appended to the URL
 
 ***CI Bot Automation/Commands:***
 
